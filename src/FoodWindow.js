@@ -22,7 +22,7 @@ function FoodWindow() {
     loading: true,
     error: null,
     data: null,
-    ingredient: ['chicken', 'cumin', 'cream', 'curry'],
+    ingredient: ['chicken', 'cumin', 'cream', 'poblano'],
   });
 
   /*Create string from state.ingredient for API request*/
@@ -43,6 +43,7 @@ function FoodWindow() {
       <RecipeCard />
       <p>{createIngredientList(state.ingredient)}</p>
       <p>Food Window</p>
+      <input type='text' placeholder='chicken, cream...' />
       <Button action="submit" />
     </div>
   );
