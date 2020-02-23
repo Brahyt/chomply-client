@@ -6,16 +6,15 @@ import Form from './Form';
 function FoodWindow() {
   const ingredientRef = React.useRef();
 
-
   /*Quick fetch for testing purposes*/
   const fetchRecipe = url => {
-    dispatch({type: 'fetch'})
+    dispatch({type: 'fetch'});
     fetch(url)
       .then(resp => {
-        return resp.ok ? resp.json() : dispatch({type: "error"});
+        return resp.ok ? resp.json() : dispatch({type: 'error'});
       })
       .then(data => {
-        dispatch({type: "success", data})
+        dispatch({type: 'success', data});
       });
   };
 
@@ -41,8 +40,8 @@ function FoodWindow() {
       return {
         ...state,
         loading: false,
-        error: "There was an error with your request"
-      }
+        error: 'There was an error with your request',
+      };
     }
   };
 
@@ -82,18 +81,16 @@ function FoodWindow() {
 
   return (
     <div className="FoodWindow">
-      {state.loading 
-          ? <p>Loading</p> 
-          : <> 
-              <RecipeCard />
-              <p>{createIngredientList(state.ingredient)}</p>
-              <p>Food Window</p>
-            </>
-      }
-      {state.error
-        ? <p>{state.error}</p>
-        : null
-      }
+      {state.loading ? (
+        <p>Loading</p>
+      ) : (
+        <>
+          <RecipeCard />
+          <p>{createIngredientList(state.ingredient)}</p>
+          <p>Food Window</p>
+        </>
+      )}
+      {state.error ? <p>{state.error}</p> : null}
       <Form submit={handleSubmit} ingredientRef={ingredientRef} />
     </div>
   );
