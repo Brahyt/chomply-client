@@ -8,12 +8,14 @@ function FoodWindow() {
 
   /*Quick fetch for testing purposes*/
   const fetchRecipe = url => {
+    //    dispatch({type: 'fetch'})
     fetch(url)
       .then(resp => {
-        return resp.ok ? resp.json() : console.log('Error');
+        return resp.ok ? resp.json() : console.log(resp);
       })
       .then(data => {
-        console.log(data);
+        console.log(data)
+        //        dispatch({type: "success", data})
       });
   };
 
@@ -23,6 +25,19 @@ function FoodWindow() {
         ...state,
         ingredient: [action.ingredient],
       };
+    }
+    else if (action.type === 'fetch') {
+      return {
+        ...state,
+        loading: true
+      }
+    }
+    else if (action.type === 'success') {
+      return {
+        ...state,
+        data: action.data,
+        loading: false
+      }
     }
   };
 
@@ -39,13 +54,16 @@ function FoodWindow() {
     return list.join().toLowerCase();
   };
 
-  /*Call Fetch from url on component load*/
+  /*When the component loads fetch 10 reipies from API*/
   fetchRecipe(
     `${process.env.REACT_APP_API_URL}?ingredients=${createIngredientList(
       state.ingredient,
     )}&apiKey=${process.env.REACT_APP_API_KEY}`,
   );
 
+  /*Submiting the form will normalize the string and return it as an array
+   * Example: "ChicKeN, Cream, rice" => ["chicken", "cream", "rice"]
+   * */
   const handleSubmit = e => {
     e.preventDefault();
     const ingredients = ingredientRef.current.value
