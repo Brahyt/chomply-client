@@ -12,14 +12,14 @@ function FoodWindow() {
     dispatch({type: 'fetch'})
     fetch(url)
       .then(resp => {
-        return resp.ok ? resp.json() : console.log(resp);
+        return resp.ok ? resp.json() : dispatch({type: "error"});
       })
       .then(data => {
-        console.log(data);
         dispatch({type: "success", data})
       });
   };
 
+  /*Reducer for assign state.*/
   const foodReducer = (state, action) => {
     if (action.type === 'submit') {
       return {
@@ -37,6 +37,12 @@ function FoodWindow() {
         data: action.data,
         loading: false,
       };
+    } else if (action.type === 'error') {
+      return {
+        ...state,
+        loading: false,
+        error: "There was an error with your request"
+      }
     }
   };
 
@@ -83,6 +89,10 @@ function FoodWindow() {
               <p>{createIngredientList(state.ingredient)}</p>
               <p>Food Window</p>
             </>
+      }
+      {state.error
+        ? <p>{state.error}</p>
+        : null
       }
       <Form submit={handleSubmit} ingredientRef={ingredientRef} />
     </div>
