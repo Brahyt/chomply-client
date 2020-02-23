@@ -4,7 +4,7 @@ import RecipeCard from './RecipeCard';
 import Form from './Form';
 
 function FoodWindow() {
-  const ingredientRef = React.useRef()
+  const ingredientRef = React.useRef();
 
   /*Quick fetch for testing purposes*/
   const fetchRecipe = url => {
@@ -17,13 +17,20 @@ function FoodWindow() {
       });
   };
 
-  const foodReducer = (state, action) => {};
+  const foodReducer = (state, action) => {
+    if (action.type === 'submit') {
+      return {
+        ...state,
+        ingredient: [action.ingredient],
+      };
+    }
+  };
 
   const [state, dispatch] = React.useReducer(foodReducer, {
     loading: true,
     error: null,
     data: null,
-    ingredient: ['chicken', 'cumin', 'cream', 'poblano'],
+    ingredient: [],
   });
 
   /*Create string from state.ingredient for API request*/
@@ -41,8 +48,10 @@ function FoodWindow() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("handle")
     const ingredients = ingredientRef.current.value
+      .toLowerCase()
+      .replace(/\s+/g, '')
+      .split(',');
     dispatch({type: 'submit', ingredient: ingredients});
   };
 
@@ -51,7 +60,7 @@ function FoodWindow() {
       <RecipeCard />
       <p>{createIngredientList(state.ingredient)}</p>
       <p>Food Window</p>
-      <Form submit={handleSubmit} ingredientRef={ingredientRef}/>
+      <Form submit={handleSubmit} ingredientRef={ingredientRef} />
     </div>
   );
 }
