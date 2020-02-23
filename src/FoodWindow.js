@@ -6,16 +6,17 @@ import Form from './Form';
 function FoodWindow() {
   const ingredientRef = React.useRef();
 
+
   /*Quick fetch for testing purposes*/
   const fetchRecipe = url => {
-    //    dispatch({type: 'fetch'})
+    dispatch({type: 'fetch'})
     fetch(url)
       .then(resp => {
         return resp.ok ? resp.json() : console.log(resp);
       })
       .then(data => {
-        console.log(data)
-        //        dispatch({type: "success", data})
+        console.log(data);
+        dispatch({type: "success", data})
       });
   };
 
@@ -25,19 +26,17 @@ function FoodWindow() {
         ...state,
         ingredient: [action.ingredient],
       };
-    }
-    else if (action.type === 'fetch') {
+    } else if (action.type === 'fetch') {
       return {
         ...state,
-        loading: true
-      }
-    }
-    else if (action.type === 'success') {
+        loading: true,
+      };
+    } else if (action.type === 'success') {
       return {
         ...state,
         data: action.data,
-        loading: false
-      }
+        loading: false,
+      };
     }
   };
 
@@ -48,18 +47,20 @@ function FoodWindow() {
     ingredient: [],
   });
 
+  React.useEffect(() => {
+    /*When the component loads fetch 10 reipies from API*/
+    fetchRecipe(
+      `${process.env.REACT_APP_API_URL}?ingredients=${createIngredientList(
+        state.ingredient,
+      )}&apiKey=${process.env.REACT_APP_API_KEY}`,
+    );
+  }, [state.ingredient]);
+
   /*Create string from state.ingredient for API request*/
   const createIngredientList = () => {
     const list = state.ingredient;
     return list.join().toLowerCase();
   };
-
-  /*When the component loads fetch 10 reipies from API*/
-  fetchRecipe(
-    `${process.env.REACT_APP_API_URL}?ingredients=${createIngredientList(
-      state.ingredient,
-    )}&apiKey=${process.env.REACT_APP_API_KEY}`,
-  );
 
   /*Submiting the form will normalize the string and return it as an array
    * Example: "ChicKeN, Cream, rice" => ["chicken", "cream", "rice"]
@@ -75,9 +76,14 @@ function FoodWindow() {
 
   return (
     <div className="FoodWindow">
-      <RecipeCard />
-      <p>{createIngredientList(state.ingredient)}</p>
-      <p>Food Window</p>
+      {state.loading 
+          ? <p>Loading</p> 
+          : <> 
+              <RecipeCard />
+              <p>{createIngredientList(state.ingredient)}</p>
+              <p>Food Window</p>
+            </>
+      }
       <Form submit={handleSubmit} ingredientRef={ingredientRef} />
     </div>
   );
