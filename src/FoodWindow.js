@@ -1,15 +1,16 @@
 import React from 'react';
 import './FoodWindow.css';
-import Button from './Button';
 import RecipeCard from './RecipeCard';
+import Form from './Form';
 
 function FoodWindow() {
+  const ingredientRef = React.useRef()
+
   /*Quick fetch for testing purposes*/
   const fetchRecipe = url => {
     fetch(url)
       .then(resp => {
-        console.log(resp)
-        return resp.ok ? resp.json() : console.log(resp.status);
+        return resp.ok ? resp.json() : console.log('Error');
       })
       .then(data => {
         console.log(data);
@@ -38,13 +39,19 @@ function FoodWindow() {
     )}&apiKey=${process.env.REACT_APP_API_KEY}`,
   );
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("handle")
+    const ingredients = ingredientRef.current.value
+    dispatch({type: 'submit', ingredient: ingredients});
+  };
+
   return (
     <div className="FoodWindow">
       <RecipeCard />
       <p>{createIngredientList(state.ingredient)}</p>
       <p>Food Window</p>
-      <input type='text' placeholder='chicken, cream...' />
-      <Button action="submit" />
+      <Form submit={handleSubmit} ingredientRef={ingredientRef}/>
     </div>
   );
 }
