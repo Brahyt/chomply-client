@@ -12,6 +12,7 @@ function FoodWindow() {
     fetch(url)
       .then(resp => {
         return resp.ok ? resp.json() : dispatch({type: 'error'});
+        console.log(resp)
       })
       .then(data => {
         dispatch({type: 'success', data});
@@ -85,7 +86,7 @@ function FoodWindow() {
         <p>Loading</p>
       ) : (
         <>
-          <RecipeCard data={state.data[0]} />
+          <RecipeCard data={state.data} />
           <p>{createIngredientList(state.ingredient)}</p>
           <p>Food Window</p>
         </>
