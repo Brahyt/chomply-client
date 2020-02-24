@@ -91,7 +91,6 @@ function FoodWindow() {
             : null
           }
           <p>{createIngredientList(state.ingredient)}</p>
-          <p>Food Window</p>
         </>
       )}
       {state.error ? <p>{state.error}</p> : null}
