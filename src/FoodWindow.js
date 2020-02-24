@@ -53,7 +53,7 @@ function FoodWindow() {
   });
 
   React.useEffect(() => {
-    /*When the component loads fetch 10 reipies from API*/
+    /*When the component loads fetch 10 recipies from API*/
     fetchRecipe(
       `${process.env.REACT_APP_API_URL}?ingredients=${createIngredientList(
         state.ingredient,

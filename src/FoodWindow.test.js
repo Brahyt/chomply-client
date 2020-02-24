@@ -1,14 +1,11 @@
 import React from 'react';
+import {shallow} from 'enzyme';
 import { render } from '@testing-library/react';
 import FoodWindow from './FoodWindow';
 
 const defaultProps = {data: {title: "test title"}}
-test('renders learn react link', () => {
-  const { getByText } = render(
-    <FoodWindow 
-      data={{data: {title: "test title"}}}
-    />
-);
-  const linkElement = getByText(/test title/i);
-  expect(linkElement).toBeInTheDocument();
+test('Test component', () => {
+  const wrapper = shallow(<FoodWindow />)
+  console.log(wrapper.debug())
+  expect(wrapper)
 });
