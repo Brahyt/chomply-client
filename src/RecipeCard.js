@@ -2,19 +2,21 @@ import React from 'react';
 import './RecipeCard.css';
 
 function RecipeCard(props) {
-  const defaultValues = {
-    url: '',
-    title: ''
-  }
-  props.data
-    ?
-    :
-  console.log(props)
+  const {image, title} = props.data;
   return (
     <div className="RecipeCard">
-      <p>{data.title}</p>
+      <img src={image} alt="" />
+      <p>{title}</p>
     </div>
   );
 }
+
+/*Need url and title for props*/
+RecipeCard.defaultProps = {
+  data: {
+    url: '',
+    title: '',
+  },
+};
 
 export default RecipeCard;
