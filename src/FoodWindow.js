@@ -11,9 +11,11 @@ function FoodWindow() {
     dispatch({type: 'fetch'});
     fetch(url)
       .then(resp => {
+        console.log(resp)
         return resp.ok ? resp.json() : dispatch({type: 'error'});
       })
       .then(data => {
+        console.log(data)
         dispatch({type: 'success', data});
       });
   };
@@ -57,7 +59,7 @@ function FoodWindow() {
     fetchRecipe(
       `${process.env.REACT_APP_API_URL}?ingredients=${createIngredientList(
         state.ingredient,
-      )}&apiKey=${process.env.REACT_APP_API_KEY}`,
+      )}&apKey=${process.env.REACT_APP_API_KEY}`,
     );
   }, [state.ingredient]);
 
