@@ -5,6 +5,7 @@ import FoodWindow from './FoodWindow'
 function App() {
   return (
     <div className="App">
+      <h1>Chomply</h1>
       <FoodWindow />
     </div>
   );
