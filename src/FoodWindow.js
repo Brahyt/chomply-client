@@ -11,11 +11,11 @@ function FoodWindow() {
     dispatch({type: 'fetch'});
     fetch(url)
       .then(resp => {
-        console.log(resp)
+        console.log(resp);
         return resp.ok ? resp.json() : dispatch({type: 'error'});
       })
       .then(data => {
-        console.log(data)
+        console.log(data);
         dispatch({type: 'success', data});
       });
   };
@@ -87,7 +87,7 @@ function FoodWindow() {
         <p>Loading</p>
       ) : (
         <>
-          <RecipeCard />
+          <RecipeCard data={state.data[0]} />
           <p>{createIngredientList(state.ingredient)}</p>
           <p>Food Window</p>
         </>

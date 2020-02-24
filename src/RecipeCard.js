@@ -1,10 +1,18 @@
 import React from 'react';
 import './RecipeCard.css';
 
-function RecipeCard() {
+function RecipeCard(props) {
+  const defaultValues = {
+    url: '',
+    title: ''
+  }
+  props.data
+    ?
+    :
+  console.log(props)
   return (
     <div className="RecipeCard">
-      <p>RecipeCard</p>
+      <p>{data.title}</p>
     </div>
   );
 }
