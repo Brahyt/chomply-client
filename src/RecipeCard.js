@@ -2,32 +2,32 @@ import React from 'react';
 import './RecipeCard.css';
 
 /*Need url and title for props*/
+/*Component recives a list of objects from parent*/
+/*save list of objects as state 'recipes'*/
+/*display first recipe on mount*/
+/*display next recipe on next click*/
+/*fetch next batch of recipes if out of recipes*/
 
 function RecipeCard(props) {
-  //const {data} = props
-  const image = ''
-  const title = ''
-  console.log(props)
-  //  const {image, title} = data.pop()
+  const {data} = props
+  const [recipeList, setRecipeList] = React.useState(data)
+  const [currentRecipe, setCurrentRecipe] = React.useState(recipeList.pop())
 
-  // Each time you swipe/choose next it pops a new card and displays it.
-  //
-  React.useEffect(()=> {
+  const useNextRecipe = () => {
+    const [count, setCount] = React.useState(0)
+    React.useEffect(() => {
+      setCurrentRecipe(recipeList.pop())
 
-  })
-
-  const nextRecipe = () => {
-
+    },[count])
   }
 
+  const {title} = currentRecipe
   return (
     <div className="RecipeCard">
-      <img src={image} alt="" />
       <p>{title}</p>
     </div>
   );
 }
-
 
 RecipeCard.defaultProps = {
   data: [
