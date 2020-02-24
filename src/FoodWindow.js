@@ -12,7 +12,6 @@ function FoodWindow() {
     fetch(url)
       .then(resp => {
         return resp.ok ? resp.json() : dispatch({type: 'error'});
-        console.log(resp)
       })
       .then(data => {
         dispatch({type: 'success', data});
