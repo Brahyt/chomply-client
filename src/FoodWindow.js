@@ -81,16 +81,17 @@ function FoodWindow() {
   };
 
   return (
+    //Render "/" Searchbar and logo
+    //Recipe "/recipe" Searchbar and foodWindow
     <div className="FoodWindow">
       {state.loading ? (
         <p>Loading</p>
       ) : (
         <>
-          {state.data.length !== 0 
+          {state.data.length !== 0
               ? <RecipeCard data={state.data} />
             : null
           }
-          <p>{createIngredientList(state.ingredient)}</p>
         </>
       )}
       {state.error ? <p>{state.error}</p> : null}
