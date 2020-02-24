@@ -42,16 +42,15 @@ function RecipeCard(props) {
     return ingredientList;
   };
 
-  console.log(currentRecipe)
-  console.log(combineIngredients(currentRecipe))
-
   const {title, image} = currentRecipe;
   return (
     <div className="RecipeCard">
       <img src={image} alt="" />
       <p>{title}</p>
       <button onClick={() => setCount(count + 1)}>next</button>
-      <IngredientList />
+      <IngredientList
+        ingredients={combineIngredients(currentRecipe)}
+      />
     </div>
   );
 }
