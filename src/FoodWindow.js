@@ -87,7 +87,7 @@ function FoodWindow() {
       ) : (
         <>
           {state.data.length !== 0 
-              ? <RecipeCard data={state.data}/>
+              ? <RecipeCard data={state.data} />
             : null
           }
           <p>{createIngredientList(state.ingredient)}</p>

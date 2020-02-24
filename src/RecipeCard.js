@@ -11,20 +11,20 @@ import './RecipeCard.css';
 function RecipeCard(props) {
   const {data} = props
   const [recipeList, setRecipeList] = React.useState(data)
-  const [currentRecipe, setCurrentRecipe] = React.useState(recipeList.pop())
+  const [currentRecipe, setCurrentRecipe] = React.useState([])
+  const [count, setCount] = React.useState(0)
 
-  const useNextRecipe = () => {
-    const [count, setCount] = React.useState(0)
-    React.useEffect(() => {
-      setCurrentRecipe(recipeList.pop())
+  React.useEffect(() => {
+    setCurrentRecipe(recipeList.pop())
+    console.log(currentRecipe)
 
-    },[count])
-  }
+  },[count])
 
   const {title} = currentRecipe
   return (
     <div className="RecipeCard">
       <p>{title}</p>
+      <button onClick={()=>setCount(count+1)}>next</button>
     </div>
   );
 }
