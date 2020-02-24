@@ -59,7 +59,7 @@ function FoodWindow() {
     fetchRecipe(
       `${process.env.REACT_APP_API_URL}?ingredients=${createIngredientList(
         state.ingredient,
-      )}&apKey=${process.env.REACT_APP_API_KEY}`,
+      )}&apiKey=${process.env.REACT_APP_API_KEY}`,
     );
   }, [state.ingredient]);
 
