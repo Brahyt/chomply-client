@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import { render } from '@testing-library/react';
+
 import FoodWindow from './FoodWindow';
 
 FoodWindow.defaultProps = {data: {title: "test title"}}
@@ -13,7 +14,4 @@ describe('Food Window', () => {
     const wrapper = shallow(<FoodWindow />)
     expect(wrapper.contains("Loading")).toBe(true)
   });
-  test('If state, dont show loading', () => {
-
-  })
 })
