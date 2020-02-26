@@ -1,3 +1,8 @@
+# Chomply
+## Swipe based Recipe chooser
+- Input your available ingredients and quickly find something to cook with what you have.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
