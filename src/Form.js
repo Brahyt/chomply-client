@@ -1,19 +1,23 @@
 import React from 'react';
 import './Form.css';
-import Button from './Button';
+import {Button, Input} from '@material-ui/core';
 
 function Form(props) {
   const {ingredientRef} = props;
   return (
     <div className="Form">
       <form onSubmit={props.submit}>
-        <input
+        <Input
           name="ingredient"
           type="text"
           placeholder="chicken, cream..."
-          ref={ingredientRef}
+          inputRef={ingredientRef}
         />
-        <Button action="submit" />
+        <Button 
+          variant="contained"
+          color="primary"
+          size="large"
+        >Submit</Button>
       </form>
     </div>
   );

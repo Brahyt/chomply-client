@@ -1,6 +1,7 @@
 import React from 'react';
 import './RecipeCard.css';
 import IngredientList from './IngredientList';
+import {Button} from '@material-ui/core';
 
 /*Need url and title for props*/
 /*Component recives a list of objects from parent*/
@@ -36,7 +37,7 @@ function RecipeCard(props) {
           amount: ingredient.amount,
           unitShort: ingredient.unitShort,
         };
-      })
+      });
       ingredientList = [...missingIngredients, ...usedIngredients];
     }
     return ingredientList;
@@ -47,10 +48,14 @@ function RecipeCard(props) {
     <div className="RecipeCard">
       <img src={image} alt="" />
       <p>{title}</p>
-      <button onClick={() => setCount(count + 1)}>next</button>
-      <IngredientList
-        ingredients={combineIngredients(currentRecipe)}
-      />
+      <Button
+        onClick={() => setCount(count + 1)}
+        variant="contained"
+        color="primary"
+        size="large">
+        Next
+      </Button>
+      <IngredientList ingredients={combineIngredients(currentRecipe)} />
     </div>
   );
 }
