@@ -4,6 +4,7 @@ import './App.css';
 import FoodWindow from './FoodWindow';
 import FrontPage from './FrontPage';
 
+
 function App() {
   return (
     <Router>
