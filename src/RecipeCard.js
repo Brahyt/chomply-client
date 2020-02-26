@@ -1,7 +1,7 @@
 import React from 'react';
 import './RecipeCard.css';
 import IngredientList from './IngredientList';
-import {Button, Card, CardMedia, CardActions, Typography} from '@material-ui/core';
+import {Button, Card, CardMedia, CardActions, List, Typography} from '@material-ui/core';
 
 /*Need url and title for props*/
 /*Component recives a list of objects from parent*/
@@ -61,7 +61,9 @@ function RecipeCard(props) {
       >
         {title}
       </Typography>
-      <IngredientList ingredients={combineIngredients(currentRecipe)} />
+      <List>
+        <IngredientList ingredients={combineIngredients(currentRecipe)} />
+      </List>
       <CardActions>
         <Button
           onClick={() => setCount(count + 1)}
