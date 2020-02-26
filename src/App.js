@@ -4,15 +4,20 @@ import './App.css';
 import FoodWindow from './FoodWindow';
 import FrontPage from './FrontPage';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 
 function App() {
+  let theme = createMuiTheme()
+  theme = responsiveFontSizes(theme)
   return (
     <Router>
-      <CssBaseline/>
+      <ThemeProvider theme={theme}>
+        <CssBaseline/>
         <div className="App">
           <Route path="/" render={FrontPage} />
           <FoodWindow />
         </div>
+      </ThemeProvider>
     </Router>
   );
 }
