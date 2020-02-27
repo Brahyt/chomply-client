@@ -9,6 +9,7 @@ import {
   List,
   Typography,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles'
 
 /*Need url and title for props*/
 /*Component recives a list of objects from parent*/
@@ -49,10 +50,18 @@ function RecipeCard(props) {
     }
     return ingredientList;
   };
+  const useStyles = makeStyles({
+    root: {
+      width: '50%',
+      minWidth: '300px'
+    }
+  })
 
   const {title, image} = currentRecipe;
+  const classes = useStyles();
   return (
-    <Card classes={{maxWidth: 350}} variant="outlined">
+    <Card className={classes.root} 
+      variant="outlined">
       <CardMedia
         component="img"
         image={image}
