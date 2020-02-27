@@ -8,12 +8,14 @@ function Form(props) {
     <div className="Form">
       <form onSubmit={props.submit}>
         <Input
+          display='block'
           name="ingredient"
           type="text"
           placeholder="chicken, cream..."
           inputRef={ingredientRef}
         />
         <Button 
+          display='block'
           variant="contained"
           color="primary"
           size="large"
