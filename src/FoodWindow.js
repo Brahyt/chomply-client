@@ -2,6 +2,8 @@ import React from 'react';
 import './FoodWindow.css';
 import RecipeCard from './RecipeCard';
 import Form from './Form';
+import { Box } from '@material-ui/core';
+import { spacing, palette } from '@material-ui/system';
 
 function FoodWindow() {
   const ingredientRef = React.useRef();
@@ -82,7 +84,7 @@ function FoodWindow() {
   return (
     //Render "/" Searchbar and logo
     //Recipe "/recipe" Searchbar and foodWindow
-    <div className="FoodWindow">
+    <Box className="FoodWindow">
       {state.loading ? (
         <p>Loading</p>
       ) : (
@@ -95,7 +97,7 @@ function FoodWindow() {
       )}
       {state.error ? <p>{state.error}</p> : null}
       <Form submit={handleSubmit} ingredientRef={ingredientRef} />
-    </div>
+    </Box>
   );
 }
 

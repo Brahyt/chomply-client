@@ -11,7 +11,14 @@ import {
 } from '@material-ui/core/styles';
 
 function App() {
-  let theme = createMuiTheme();
+  let theme = createMuiTheme({
+    typography: {
+      fontFamily: [
+        "Barlow",
+        "Leckerli"
+      ] 
+    }
+  });
   theme = responsiveFontSizes(theme);
   return (
     <Router>
