@@ -19,7 +19,7 @@ function Form(props) {
           variant="contained"
           color="primary"
           size="large"
-        >Submit</Button>
+        >Chomp</Button>
       </form>
     </div>
   );

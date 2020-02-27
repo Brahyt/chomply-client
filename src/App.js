@@ -4,29 +4,18 @@ import './App.css';
 import FoodWindow from './FoodWindow';
 import FrontPage from './FrontPage';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {
-  createMuiTheme,
-  responsiveFontSizes,
-  ThemeProvider,
-} from '@material-ui/core/styles';
+import {ThemeProvider} from '@material-ui/core/styles';
+import chomplyTheme from './theme';
 
+console.log(chomplyTheme);
 function App() {
-  let theme = createMuiTheme({
-    typography: {
-      fontFamily: [
-        "Barlow",
-        "Leckerli"
-      ] 
-    }
-  });
-  theme = responsiveFontSizes(theme);
   return (
     <Router>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={chomplyTheme}>
         <CssBaseline />
         <div className="App">
-          <Route path="/" render={FrontPage} />
-          <FoodWindow />
+          <Route exact path="/" component={FrontPage} />
+          <Route path="/find" component={FoodWindow} />
         </div>
       </ThemeProvider>
     </Router>
