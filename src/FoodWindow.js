@@ -3,8 +3,10 @@ import './FoodWindow.css';
 import RecipeCard from './RecipeCard';
 import Form from './Form';
 import {Box} from '@material-ui/core';
+import {useTheme} from '@material-ui/core/styles'
 
-function FoodWindow() {
+function FoodWindow(props) {
+  const theme = useTheme()
   const ingredientRef = React.useRef();
 
   /*Quick fetch for testing purposes*/
@@ -82,7 +84,9 @@ function FoodWindow() {
 
   return (
     //Recipe "/find" Searchbar and foodWindow
-    <Box className="FoodWindow">
+    <Box 
+      className="FoodWindow"
+    >
       {state.loading ? (
         <p>Loading</p>
       ) : (
