@@ -3,6 +3,7 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from '@material-ui/core/styles';
+import { spacing } from '@material-ui/system'
 
 let theme = createMuiTheme({
   typography: {
@@ -10,7 +11,8 @@ let theme = createMuiTheme({
       "Barlow",
       "Leckerli"
     ] 
-  }
+  },
+  spacing: 1
 });
 theme = responsiveFontSizes(theme);
 
