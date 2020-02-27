@@ -1,7 +1,14 @@
 import React from 'react';
 import './RecipeCard.css';
 import IngredientList from './IngredientList';
-import {Button, Card, CardMedia, CardActions, List, Typography} from '@material-ui/core';
+import {
+  Button,
+  Card,
+  CardMedia,
+  CardActions,
+  List,
+  Typography,
+} from '@material-ui/core';
 
 /*Need url and title for props*/
 /*Component recives a list of objects from parent*/
@@ -20,7 +27,7 @@ function RecipeCard(props) {
     setCurrentRecipe(recipeList.pop());
   }, [count]);
 
-  /*Combine the ingredients from missingIngredients and usedIngredients and return that*/
+  /*Return an object that combines the ingredients from missingIngredients and usedIngredients*/
   const combineIngredients = recipe => {
     let ingredientList = [];
     if (recipe.length !== 0) {
@@ -45,20 +52,18 @@ function RecipeCard(props) {
 
   const {title, image} = currentRecipe;
   return (
-    <Card
-      variant="outlined"
-    >
-      <CardMedia 
+    <Card classes={{maxWidth: 350}} variant="outlined">
+      <CardMedia
         component="img"
         image={image}
         alt="Image of the food."
         height="150"
       />
-      <Typography variant="h4" 
+      <Typography
+        variant="h4"
         align="center"
-        gutterBottom='true'
-        gutterTop="true"
-      >
+        gutterBottom="true"
+        gutterTop="true">
         {title}
       </Typography>
       <List>
