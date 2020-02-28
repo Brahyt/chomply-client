@@ -77,7 +77,8 @@ function FoodWindow(props) {
     e.preventDefault();
     const ingredients = ingredientRef.current.value
       .toLowerCase()
-      .replace(/\s+/g, '')
+      .replace(/,\s+/g, ',')
+      .replace(/\s+/g, '%')
       .split(',');
     dispatch({type: 'submit', ingredient: ingredients});
   };

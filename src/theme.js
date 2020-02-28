@@ -8,7 +8,7 @@ let theme = createMuiTheme({
     fontFamily: [
       "Barlow",
       "Leckerli"
-    ] 
+    ]
   },
   spacing: 1
 });
