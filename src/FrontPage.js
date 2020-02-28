@@ -1,8 +1,21 @@
 import React from 'react';
+import {Button, Typography} from '@material-ui/core';
+
 function FrontPage() {
   return (
       <div className="FrontPage">
-        <h1>Chomply</h1>
+        <Typography 
+          variant='h1'
+          font="Leckerli One"
+        >
+          Chomply
+        </Typography>
+          <Button 
+            style={{margin: 10}}
+            variant="contained"
+            color="primary"
+            size="large"
+          >Chomp</Button>
       </div>
   );
 }
