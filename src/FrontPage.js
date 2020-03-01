@@ -1,22 +1,18 @@
 import React from 'react';
-import {Button, Typography, Box} from '@material-ui/core';
+import {Button, Typography} from '@material-ui/core';
+import chompImg from './images/chomply.png'
 
 function FrontPage() {
   return (
-      <Box>
-        <Typography 
-          variant='h1'
-          font="Leckerli One"
-        >
-          Chomply
-        </Typography>
-          <Button 
+      <div className="FrontPage">
+        <img src={chompImg}/>
+          <Button
             style={{margin: 10}}
             variant="contained"
             color="primary"
             size="large"
           >Chomp</Button>
-        </Box>
+      </div>
   );
 }
 

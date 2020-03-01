@@ -4,6 +4,14 @@ import {
 } from '@material-ui/core/styles';
 
 let theme = createMuiTheme({
+  palette: {
+    primary: {
+     main: '#429ecd'
+    },
+    background: {
+      default: '#429ecd'
+    }
+  },
   typography: {
     fontFamily: [
       "Barlow",
