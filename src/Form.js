@@ -3,9 +3,9 @@ import './Form.css';
 import {Button, Input, FormControl, FormHelperText} from '@material-ui/core';
 
 function Form(props) {
-  const {ingredientRef} = props;
+  const {ingredientRef, submit} = props;
   return (
-      <form onSubmit={props.submit}>
+      <form onSubmit={submit}>
         <FormControl>
           <FormHelperText 
             style={{margin: [10,10,0,10]}}
@@ -24,6 +24,7 @@ function Form(props) {
             variant="contained"
             color="primary"
             size="large"
+            onClick={submit}
           >Chomp</Button>
         </FormControl>
       </form>
