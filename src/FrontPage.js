@@ -1,9 +1,9 @@
 import React from 'react';
-import {Button, Typography} from '@material-ui/core';
+import {Button, Typography, Box} from '@material-ui/core';
 
 function FrontPage() {
   return (
-      <div className="FrontPage">
+      <Box>
         <Typography 
           variant='h1'
           font="Leckerli One"
@@ -16,7 +16,7 @@ function FrontPage() {
             color="primary"
             size="large"
           >Chomp</Button>
-      </div>
+        </Box>
   );
 }
 
