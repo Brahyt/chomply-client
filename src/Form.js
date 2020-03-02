@@ -7,7 +7,7 @@ function Form(props) {
   return (
       <form onSubmit={submit}>
         <FormControl>
-          <FormHelperText 
+          <FormHelperText
             style={{margin: [10,10,0,10]}}
             id="ingredients-helper"
           >What do you want to cook with today?</FormHelperText>
@@ -19,7 +19,7 @@ function Form(props) {
             placeholder="chicken, cream..."
             inputRef={ingredientRef}
           />
-          <Button 
+          <Button
             style={{margin: 10}}
             variant="contained"
             color="primary"
