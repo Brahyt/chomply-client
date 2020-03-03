@@ -22,7 +22,7 @@ function Form(props) {
           <Button
             style={{margin: 10}}
             variant="contained"
-            color="primary"
+            color="secondary"
             size="large"
             onClick={submit}
           >Chomp</Button>
