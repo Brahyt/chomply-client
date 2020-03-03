@@ -33,7 +33,6 @@ function IngredientList(props) {
     });
   };
 
-  console.log(props);
   return (
     <Box
       margin='5%'

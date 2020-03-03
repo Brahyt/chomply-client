@@ -3,13 +3,14 @@ import './RecipeCard.css';
 import IngredientList from './IngredientList';
 import {
   Button,
+  Box,
   Card,
   CardMedia,
   CardActions,
   List,
   Typography,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles'
+import {makeStyles} from '@material-ui/core/styles';
 
 /*Need url and title for props*/
 /*Component recives a list of objects from parent*/
@@ -52,15 +53,14 @@ function RecipeCard(props) {
   };
   const useStyles = makeStyles({
     root: {
-      minWidth: '300px'
-    }
-  })
+      minWidth: '300px',
+    },
+  });
 
   const {title, image} = currentRecipe;
   const classes = useStyles();
   return (
-    <Card className={classes.root} 
-      variant="outlined">
+    <Card className={classes.root} variant="outlined">
       <CardMedia
         component="img"
         image={image}
@@ -78,22 +78,25 @@ function RecipeCard(props) {
         <IngredientList ingredients={combineIngredients(currentRecipe)} />
       </List>
       <CardActions>
-        <Button
-          onClick={() => setCount(count + 1)}
-          variant="outlined"
-          color="primary"
-          size="small">
-          Next
-        </Button>
-        <Button
-          onClick={() => setCount(count + 1)}
-          variant="outlined"
-          color="primary"
-          size="small"
-          disabled
-        >
-          Recipe
-        </Button>
+        <Box margin="5%">
+          <Button
+            onClick={() => setCount(count + 1)}
+            variant="outlined"
+            color="primary"
+            size="small">
+            Next
+          </Button>
+        </Box>
+        <Box margin="5%">
+          <Button
+            onClick={() => setCount(count + 1)}
+            variant="outlined"
+            color="primary"
+            size="small"
+            disabled>
+            Recipe
+          </Button>
+        </Box>
       </CardActions>
     </Card>
   );
