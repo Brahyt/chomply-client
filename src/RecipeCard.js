@@ -12,13 +12,6 @@ import {
 } from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 
-/*Need url and title for props*/
-/*Component recives a list of objects from parent*/
-/*save list of objects as state 'recipes'*/
-/*display first recipe on mount*/
-/*display next recipe on next click*/
-/*fetch next batch of recipes if out of recipes*/
-
 function RecipeCard(props) {
   const {data} = props;
   const [recipeList, setRecipeList] = React.useState(data);
@@ -67,13 +60,15 @@ function RecipeCard(props) {
         alt="Image of the food."
         height="150"
       />
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom="true"
-        gutterTop="true">
-        {title}
-      </Typography>
+      <Box mt='5%'>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom="true"
+          gutterTop="true">
+          {title}
+        </Typography>
+      </Box>
       <List>
         <IngredientList ingredients={combineIngredients(currentRecipe)} />
       </List>
