@@ -15,7 +15,6 @@ function App() {
       <ThemeProvider theme={chomplyTheme}>
         <CssBaseline />
         <Box 
-          border={1}
           align="center"
           width="100vw"
           height="100vh"

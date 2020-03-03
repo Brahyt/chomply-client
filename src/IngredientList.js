@@ -1,7 +1,7 @@
 import React from 'react';
 import './IngredientList.css';
 import {v4 as uuidv4} from 'uuid';
-import {ListItem, ListItemText} from '@material-ui/core';
+import {ListItem, ListItemText, Typography} from '@material-ui/core';
 
 function IngredientList(props) {
   /*Build a list of ingredients
@@ -18,7 +18,15 @@ function IngredientList(props) {
           key={uuidv4()}
         >
           <ListItemText
-            primary={`${amount} ${unitShort} - ${name}`}
+            primary={
+              <>
+                <Typography
+                  variant="h5"
+                >
+                  {`${amount.toFixed(2)} ${unitShort} - ${name}`}
+                </Typography>
+              </>
+              }
           />
         </ListItem>
       );
