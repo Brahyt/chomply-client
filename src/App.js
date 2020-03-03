@@ -14,7 +14,12 @@ function App() {
     <Router>
       <ThemeProvider theme={chomplyTheme}>
         <CssBaseline />
-        <Box align="center">
+        <Box 
+          border={1}
+          align="center"
+          width="100vw"
+          height="100vh"
+        >
           <Route exact path="/" component={FrontPage} />
           <Route path="/find" component={FoodWindow} />
         </Box>

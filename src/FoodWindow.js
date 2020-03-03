@@ -87,6 +87,7 @@ function FoodWindow(props) {
     //Recipe "/find" Searchbar and foodWindow
     <Box 
       className="FoodWindow"
+      width='50%'
     >
       {state.loading ? (
         <p>Loading</p>
