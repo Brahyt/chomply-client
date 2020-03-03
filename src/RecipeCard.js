@@ -3,29 +3,27 @@ import './RecipeCard.css';
 import IngredientList from './IngredientList';
 import {
   Button,
+  Box,
   Card,
   CardMedia,
   CardActions,
   List,
   Typography,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles'
-
-/*Need url and title for props*/
-/*Component recives a list of objects from parent*/
-/*save list of objects as state 'recipes'*/
-/*display first recipe on mount*/
-/*display next recipe on next click*/
-/*fetch next batch of recipes if out of recipes*/
+import {makeStyles} from '@material-ui/core/styles';
 
 function RecipeCard(props) {
   const {data} = props;
   const [recipeList, setRecipeList] = React.useState(data);
   const [currentRecipe, setCurrentRecipe] = React.useState([]);
   const [count, setCount] = React.useState(0);
+  const [currentId, setCurrentId] = React.useState(null);
+  const [error, setError] = React.useState(false)
 
   React.useEffect(() => {
-    setCurrentRecipe(recipeList.pop());
+    const currentRecipe = recipeList.pop()
+    setCurrentRecipe(currentRecipe)
+    setCurrentId(currentRecipe.id)
   }, [count]);
 
   /*Return an object that combines the ingredients from missingIngredients and usedIngredients*/
@@ -52,48 +50,61 @@ function RecipeCard(props) {
   };
   const useStyles = makeStyles({
     root: {
-      minWidth: '300px'
-    }
-  })
+      minWidth: '300px',
+    },
+  });
+
+  const fetchDetailsLink = (id) => {
+    fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_API_KEY}`)
+      .then(resp => {
+        return resp.ok ? resp.json() : setError(true);
+      })
+      .then(data => {
+        window.open(data.sourceUrl, "_blank")
+      });
+  }
 
   const {title, image} = currentRecipe;
   const classes = useStyles();
   return (
-    <Card className={classes.root} 
-      variant="outlined">
+    <Card className={classes.root} variant="outlined">
       <CardMedia
         component="img"
         image={image}
         alt="Image of the food."
         height="150"
       />
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom="true"
-        gutterTop="true">
-        {title}
-      </Typography>
-      <List>
+      <Box mt="5%">
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom="true"
+          gutterTop="true">
+          {title}
+        </Typography>
+      </Box>
+      <List dense>
         <IngredientList ingredients={combineIngredients(currentRecipe)} />
       </List>
       <CardActions>
-        <Button
-          onClick={() => setCount(count + 1)}
-          variant="outlined"
-          color="primary"
-          size="small">
-          Next
-        </Button>
-        <Button
-          onClick={() => setCount(count + 1)}
-          variant="outlined"
-          color="primary"
-          size="small"
-          disabled
-        >
-          Recipe
-        </Button>
+        <Box margin="5%">
+          <Button
+            onClick={() => setCount(count + 1)}
+            variant="outlined"
+            color="primary"
+            size="small">
+            Next
+          </Button>
+        </Box>
+        <Box margin="5%">
+          <Button
+            onClick={() => fetchDetailsLink(currentId)}
+            variant="outlined"
+            color="primary"
+            size="small">
+            Recipe
+          </Button>
+        </Box>
       </CardActions>
     </Card>
   );

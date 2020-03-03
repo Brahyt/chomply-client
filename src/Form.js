@@ -1,39 +1,46 @@
 import React from 'react';
 import './Form.css';
-import {Button, Input, FormControl, FormHelperText} from '@material-ui/core';
+import {
+  Box,
+  Button,
+  TextField,
+  FormControl,
+  FormHelperText,
+} from '@material-ui/core';
+
 
 function Form(props) {
   const {ingredientRef, submit} = props;
   return (
-    <form 
-      onSubmit={submit}
-    >
-      <FormControl
-       fullWidth={true}
-      >
-          <FormHelperText
-            style={{margin: [10,10,0,10]}}
-            id="ingredients-helper"
-          >What do you want to cook with today?</FormHelperText>
-          <Input
-            style={{margin: [0,10,10,10]}}
+    <Box marginY="5%" width="100%" >
+      <form onSubmit={submit}>
+        <FormControl fullWidth>
+          <FormHelperText id="ingredients-helper" variant="outlined">
+            What do you want to cook with today?
+          </FormHelperText>
+          <TextField
             id="ingredients"
             name="ingredient"
             type="text"
             placeholder="chicken, cream..."
+            variant="outlined"
             autoFocus
-            width='100%'
+            fullwidth
             inputRef={ingredientRef}
           />
-          <Button
-            style={{margin: 10}}
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={submit}
-          >Chomp</Button>
+          <Box marginY="3%" width="100%">
+            <Button
+              fullWidth
+              variant="contained"
+              color="secondary"
+              size="large"
+              onClick={submit}>
+              Chomp
+            </Button>
+          </Box>
         </FormControl>
       </form>
+    </Box>
   );
 }
 

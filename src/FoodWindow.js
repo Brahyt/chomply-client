@@ -3,10 +3,8 @@ import './FoodWindow.css';
 import RecipeCard from './RecipeCard';
 import Form from './Form';
 import {Box} from '@material-ui/core';
-import {useTheme} from '@material-ui/core/styles';
 
 function FoodWindow(props) {
-  const theme = useTheme();
   const ingredientRef = React.useRef();
 
   /*Quick fetch for testing purposes*/
@@ -56,11 +54,11 @@ function FoodWindow(props) {
   });
 
   React.useEffect(() => {
-    /*When the component loads fetch 10 recipies from API*/
+    /*When the component loads fetch 20 recipies from API*/
     fetchRecipe(
       `${process.env.REACT_APP_API_URL}?ingredients=${createIngredientList(
         state.ingredient,
-      )}&apiKey=${process.env.REACT_APP_API_KEY}`,
+      )}&number=20&apiKey=${process.env.REACT_APP_API_KEY}`,
     );
   }, [state.ingredient]);
 
@@ -71,7 +69,7 @@ function FoodWindow(props) {
   };
 
   /*Submiting the form will normalize the string and return it as an array
-   * Example: "ChicKeN, Cream, rice" => ["chicken", "cream", "rice"]
+   * Example: "ChicKeN, Cream, rice, Sour Cream" => ["chicken", "cream", "rice", "sour%cream"]
    * */
   const handleSubmit = e => {
     e.preventDefault();
@@ -85,10 +83,7 @@ function FoodWindow(props) {
 
   return (
     //Recipe "/find" Searchbar and foodWindow
-    <Box 
-      className="FoodWindow" 
-      width="50%"
-    >
+    <Box className="FoodWindow" width="50%">
       {state.loading ? (
         <p>Loading</p>
       ) : (
