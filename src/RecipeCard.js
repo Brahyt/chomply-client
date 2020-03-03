@@ -17,9 +17,13 @@ function RecipeCard(props) {
   const [recipeList, setRecipeList] = React.useState(data);
   const [currentRecipe, setCurrentRecipe] = React.useState([]);
   const [count, setCount] = React.useState(0);
+  const [currentId, setCurrentId] = React.useState(null);
+  const [error, setError] = React.useState(false)
 
   React.useEffect(() => {
-    setCurrentRecipe(recipeList.pop());
+    const currentRecipe = recipeList.pop()
+    setCurrentRecipe(currentRecipe)
+    setCurrentId(currentRecipe.id)
   }, [count]);
 
   /*Return an object that combines the ingredients from missingIngredients and usedIngredients*/
@@ -50,6 +54,16 @@ function RecipeCard(props) {
     },
   });
 
+  const fetchDetailsLink = (id) => {
+    fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_API_KEY}`)
+      .then(resp => {
+        return resp.ok ? resp.json() : setError(true);
+      })
+      .then(data => {
+        window.open(data.sourceUrl, "_blank")
+      });
+  }
+
   const {title, image} = currentRecipe;
   const classes = useStyles();
   return (
@@ -60,7 +74,7 @@ function RecipeCard(props) {
         alt="Image of the food."
         height="150"
       />
-      <Box mt='5%'>
+      <Box mt="5%">
         <Typography
           variant="h4"
           align="center"
@@ -69,7 +83,7 @@ function RecipeCard(props) {
           {title}
         </Typography>
       </Box>
-      <List>
+      <List dense>
         <IngredientList ingredients={combineIngredients(currentRecipe)} />
       </List>
       <CardActions>
@@ -84,11 +98,10 @@ function RecipeCard(props) {
         </Box>
         <Box margin="5%">
           <Button
-            onClick={() => setCount(count + 1)}
+            onClick={() => fetchDetailsLink(currentId)}
             variant="outlined"
             color="primary"
-            size="small"
-            disabled>
+            size="small">
             Recipe
           </Button>
         </Box>

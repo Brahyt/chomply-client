@@ -54,11 +54,11 @@ function FoodWindow(props) {
   });
 
   React.useEffect(() => {
-    /*When the component loads fetch 10 recipies from API*/
+    /*When the component loads fetch 20 recipies from API*/
     fetchRecipe(
       `${process.env.REACT_APP_API_URL}?ingredients=${createIngredientList(
         state.ingredient,
-      )}&apiKey=${process.env.REACT_APP_API_KEY}`,
+      )}&number=20&apiKey=${process.env.REACT_APP_API_KEY}`,
     );
   }, [state.ingredient]);
 
@@ -94,6 +94,5 @@ function FoodWindow(props) {
     </Box>
   );
 }
-
 
 export default FoodWindow;
