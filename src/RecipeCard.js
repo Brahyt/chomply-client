@@ -52,7 +52,6 @@ function RecipeCard(props) {
   };
   const useStyles = makeStyles({
     root: {
-      width: '50%',
       minWidth: '300px'
     }
   })
@@ -85,6 +84,15 @@ function RecipeCard(props) {
           color="primary"
           size="small">
           Next
+        </Button>
+        <Button
+          onClick={() => setCount(count + 1)}
+          variant="outlined"
+          color="primary"
+          size="small"
+          disabled
+        >
+          Recipe
         </Button>
       </CardActions>
     </Card>

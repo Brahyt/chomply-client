@@ -3,11 +3,15 @@ import './Form.css';
 import {Button, Input, FormControl, FormHelperText} from '@material-ui/core';
 
 function Form(props) {
-  const {ingredientRef} = props;
+  const {ingredientRef, submit} = props;
   return (
-      <form onSubmit={props.submit}>
-        <FormControl>
-          <FormHelperText 
+    <form 
+      onSubmit={submit}
+    >
+      <FormControl
+       fullWidth={true}
+      >
+          <FormHelperText
             style={{margin: [10,10,0,10]}}
             id="ingredients-helper"
           >What do you want to cook with today?</FormHelperText>
@@ -17,13 +21,16 @@ function Form(props) {
             name="ingredient"
             type="text"
             placeholder="chicken, cream..."
+            autoFocus
+            width='100%'
             inputRef={ingredientRef}
           />
-          <Button 
+          <Button
             style={{margin: 10}}
             variant="contained"
-            color="primary"
+            color="secondary"
             size="large"
+            onClick={submit}
           >Chomp</Button>
         </FormControl>
       </form>
