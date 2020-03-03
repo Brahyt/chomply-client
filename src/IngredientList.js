@@ -1,7 +1,7 @@
 import React from 'react';
 import './IngredientList.css';
 import {v4 as uuidv4} from 'uuid';
-import {ListItem, ListItemText, Typography} from '@material-ui/core';
+import {Box, ListItem, ListItemText, Typography} from '@material-ui/core';
 
 function IngredientList(props) {
   /*Build a list of ingredients
@@ -23,7 +23,7 @@ function IngredientList(props) {
                 <Typography
                   variant="h5"
                 >
-                  {`${amount.toFixed(2)} ${unitShort} - ${name}`}
+                  {`${amount.toFixed(2)} ${unitShort} of ${name}`}
                 </Typography>
               </>
               }
@@ -35,9 +35,11 @@ function IngredientList(props) {
 
   console.log(props);
   return (
-    <>
+    <Box
+      margin='5%'
+    >
       {createList()}
-    </>
+    </Box>
   );
 }
 

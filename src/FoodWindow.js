@@ -71,7 +71,7 @@ function FoodWindow(props) {
   };
 
   /*Submiting the form will normalize the string and return it as an array
-   * Example: "ChicKeN, Cream, rice" => ["chicken", "cream", "rice"]
+   * Example: "ChicKeN, Cream, rice, Sour Cream" => ["chicken", "cream", "rice", "sour%cream"]
    * */
   const handleSubmit = e => {
     e.preventDefault();
@@ -85,10 +85,7 @@ function FoodWindow(props) {
 
   return (
     //Recipe "/find" Searchbar and foodWindow
-    <Box 
-      className="FoodWindow" 
-      width="50%"
-    >
+    <Box className="FoodWindow" width="50%">
       {state.loading ? (
         <p>Loading</p>
       ) : (
@@ -99,5 +96,6 @@ function FoodWindow(props) {
     </Box>
   );
 }
+
 
 export default FoodWindow;
