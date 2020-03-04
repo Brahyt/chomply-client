@@ -5,6 +5,7 @@ import {lightBlue} from '@material-ui/core/colors';
 import materialUiIcon from './images/materialui.svg'
 import reactIcon from './images/react.svg'
 import jsIcon from './images/js.svg'
+import phone1 from './images/phone1.png'
 
 function FrontPage(props) {
   const {history} = props;
@@ -31,10 +32,13 @@ function FrontPage(props) {
       </Box>
       <Box>
         <Typography variant='h4'>Add ingredients you have...</Typography>
+        <img src={phone1} />
         <Typography variant='h4'>Recieve recipies you can make.</Typography>
         <Typography variant='h4'>Add or remove ingredients.</Typography>
+        <img src={phone1} />
         <Typography variant='h4'>Hit next to see another recipe using your ingredients.</Typography>
         <Typography variant='h4'>Check out the recipe when ready.</Typography>
+        <img src={phone1} />
       </Box>
       <Box
         bgcolor={lightBlue[200]}
