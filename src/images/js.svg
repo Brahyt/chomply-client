@@ -1,45 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
-  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c142 79.160924, 2017/07/13-01:06:39        ">
-   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-      <rdf:Description rdf:about=""/>
-   </rdf:RDF>
-</x:xmpmeta>
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                           
-<?xpacket end="w"?></metadata>
-<defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
     <style>
       .cls-1 {
         fill: #fff;
-        stroke-width: 1px;
         fill-rule: evenodd;
-        stroke: url(#linear-gradient);
       }
     </style>
-    <linearGradient id="linear-gradient" x1="100" y1="200" x2="100" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ff00f0"/>
-      <stop offset="1" stop-color="#00601b"/>
-    </linearGradient>
   </defs>
   <path class="cls-1" d="M0,0H200V200H0V0ZM90,92h19v66s-1.01,26.171-27,26c-26.115-.171-29-17-29-17l15-9s4.445,10.38,12,10c9.532-.479,10-9,10-9V92Zm75,23,14-9s-5.517-15.688-27-16c-21.062-.305-27.642,17.257-27,27,0.4,6,1.282,17.61,18,25,19.718,8.716,23.522,10.75,22,18-1.409,6.711-9.7,8.483-18,7-5.07-.905-13-11-13-11l-15,10s11.336,20.006,35,18,29.526-15.288,30-23-0.563-21.454-20-30c-16.294-7.164-23.129-9.628-21-18,1.76-6.922,11.461-6.7,14-5A92.521,92.521,0,0,1,165,115Z"/>
 </svg>
