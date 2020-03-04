@@ -2,6 +2,9 @@ import React from 'react';
 import {Button, Typography, Box} from '@material-ui/core';
 import chompImg from './images/chomply.png';
 import {lightBlue} from '@material-ui/core/colors';
+import materialUiIcon from './images/materialui.svg'
+import reactIcon from './images/react.svg'
+import jsIcon from './images/js.svg'
 
 function FrontPage(props) {
   const {history} = props;
@@ -39,6 +42,20 @@ function FrontPage(props) {
         marginY='5%'
       >
         <Typography variant='h2'>Tech Used</Typography>
+        <Box marginY='5%' color='white'>
+          <Box margin="5%">
+            <img src={jsIcon} style={{width: '50%'}} />
+            <Typography variant='h2' >Javascript</Typography>
+          </Box>
+          <Box margin="5%">
+            <img src={reactIcon} style={{width: '50%'}} />
+            <Typography variant='h2' >React</Typography>
+          </Box>
+          <Box margin="5%">
+            <img src={materialUiIcon} style={{width: '50%'}} />
+            <Typography variant='h2' >MaterialUI</Typography>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
