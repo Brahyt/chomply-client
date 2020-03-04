@@ -7,7 +7,7 @@ import {Box} from '@material-ui/core';
 function FoodWindow(props) {
   const ingredientRef = React.useRef();
 
-  /*Quick fetch for testing purposes*/
+  /*Fetch the url for recipes, return 20 recipes*/
   const fetchRecipe = url => {
     dispatch({type: 'fetch'});
     fetch(url)
