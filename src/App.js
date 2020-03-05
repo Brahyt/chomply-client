@@ -8,7 +8,6 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import {Box} from '@material-ui/core';
 import chomplyTheme from './theme';
 
-console.log(chomplyTheme);
 function App() {
   return (
     <Router>

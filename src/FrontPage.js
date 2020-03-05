@@ -34,15 +34,23 @@ function FrontPage(props) {
         </Typography>
       </Box>
       <Box>
-        <Typography variant='h4'>Add ingredients you have...</Typography>
-        <img alt="phone showing how to type" src={phone1} />
-        <Typography variant='h4'>Recieve recipies you can make.</Typography>
-        <Typography variant='h4'>Add or remove ingredients.</Typography>
-        <img alt="phone showing recipe based on input" src={phone2} />
-        <Typography variant='h4'>Hit next to see another recipe using your ingredients.</Typography>
-        <img alt="phone showing recipe after you click on next" src={phone3} />
-        <Typography variant='h4'>Check out the recipe when ready.</Typography>
-        <img alt="phone showing recipe on the owners site."src={phone4} />
+        <Box>
+          <Typography variant='h4'>Add ingredients you have...</Typography>
+          <img alt="phone showing how to type" src={phone1} />
+        </Box>
+        <Box>
+          <Typography variant='h4'>Recieve recipies you can make.</Typography>
+          <Typography variant='h4'>Add or remove ingredients.</Typography>
+          <img alt="phone showing recipe based on input" src={phone2} />
+        </Box>
+        <Box>
+          <Typography variant='h4'>Hit next to see another recipe using your ingredients.</Typography>
+          <img alt="phone showing recipe after you click on next" src={phone3} />
+        </Box>
+        <Box>
+          <Typography variant='h4'>Check out the recipe when ready.</Typography>
+          <img alt="phone showing recipe on the owners site."src={phone4} />
+        </Box>
       </Box>
       <Box
         bgcolor={lightBlue[200]}
@@ -52,15 +60,15 @@ function FrontPage(props) {
         <Typography variant='h2'>Tech Used</Typography>
         <Box marginY='5%' color='white'>
           <Box margin="5%">
-            <img src={jsIcon} style={{width: '50%'}} />
+            <img alt="javascript logo" src={jsIcon} style={{width: '50%'}} />
             <Typography variant='h2' >Javascript</Typography>
           </Box>
           <Box margin="5%">
-            <img src={reactIcon} style={{width: '50%'}} />
+            <img alt="react logo" src={reactIcon} style={{width: '50%'}} />
             <Typography variant='h2' >React</Typography>
           </Box>
           <Box margin="5%">
-            <img src={materialUiIcon} style={{width: '50%'}} />
+            <img alt="material ui logo" src={materialUiIcon} style={{width: '50%'}} />
             <Typography variant='h2' >MaterialUI</Typography>
           </Box>
         </Box>
