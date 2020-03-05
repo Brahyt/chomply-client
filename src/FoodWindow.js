@@ -2,7 +2,7 @@ import React from 'react';
 import './FoodWindow.css';
 import RecipeCard from './RecipeCard';
 import Form from './Form';
-import {Box} from '@material-ui/core';
+import {Backdrop, Box, CircularProgress} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 
 function FoodWindow(props) {
@@ -86,22 +86,27 @@ function FoodWindow(props) {
     responsiveBox: {
       width: '50%',
       [theme.breakpoints.down('xs')]: {
-        width: '95%'
-      }
-    }
-  }))
-  const styles = useStyles()
+        width: '95%',
+      },
+    },
+  }));
+  const styles = useStyles();
 
+  const {loading, data, error} = state
   return (
     //Recipe "/find" Searchbar and foodWindow
-    <Box className={`FoodWindow ${styles.responsiveBox}`} >
-      {state.loading ? (
-        <p>Loading</p>
+    <Box className={`FoodWindow ${styles.responsiveBox}`}>
+      {loading ? (
+        <Backdrop open={loading}>
+          <CircularProgress color='secondary'/>
+        </Backdrop>
       ) : (
-        <>{state.data.length !== 0 ? <RecipeCard data={state.data} /> : null}</>
+        <>{data.length !== 0 ? <RecipeCard data={data} /> : null}</>
       )}
-      {state.error ? <p>{state.error}</p> : null}
-      <Form submit={handleSubmit} ingredientRef={ingredientRef} />
+      {error ? <p>{error}</p> : null}
+      <Box>
+        <Form submit={handleSubmit} ingredientRef={ingredientRef} />
+      </Box>
     </Box>
   );
 }
