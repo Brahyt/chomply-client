@@ -6,6 +6,9 @@ import materialUiIcon from './images/materialui.svg'
 import reactIcon from './images/react.svg'
 import jsIcon from './images/js.svg'
 import phone1 from './images/phone1.png'
+import phone2 from './images/phone2.png'
+import phone3 from './images/phone3.png'
+import phone4 from './images/phone4.png'
 
 function FrontPage(props) {
   const {history} = props;
@@ -35,10 +38,11 @@ function FrontPage(props) {
         <img src={phone1} />
         <Typography variant='h4'>Recieve recipies you can make.</Typography>
         <Typography variant='h4'>Add or remove ingredients.</Typography>
-        <img src={phone1} />
+        <img src={phone2} />
         <Typography variant='h4'>Hit next to see another recipe using your ingredients.</Typography>
+        <img src={phone3} />
         <Typography variant='h4'>Check out the recipe when ready.</Typography>
-        <img src={phone1} />
+        <img src={phone4} />
       </Box>
       <Box
         bgcolor={lightBlue[200]}
