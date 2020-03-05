@@ -3,11 +3,12 @@ import './FoodWindow.css';
 import RecipeCard from './RecipeCard';
 import Form from './Form';
 import {Box} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 
 function FoodWindow(props) {
   const ingredientRef = React.useRef();
 
-  /*Quick fetch for testing purposes*/
+  /*Fetch the url for recipes, return 20 recipes*/
   const fetchRecipe = url => {
     dispatch({type: 'fetch'});
     fetch(url)
@@ -81,9 +82,19 @@ function FoodWindow(props) {
     dispatch({type: 'submit', ingredient: ingredients});
   };
 
+  const useStyles = makeStyles(theme => ({
+    responsiveBox: {
+      width: '50%',
+      [theme.breakpoints.down('xs')]: {
+        width: '95%'
+      }
+    }
+  }))
+  const styles = useStyles()
+
   return (
     //Recipe "/find" Searchbar and foodWindow
-    <Box className="FoodWindow" width="50%">
+    <Box className={`FoodWindow ${styles.responsiveBox}`} >
       {state.loading ? (
         <p>Loading</p>
       ) : (

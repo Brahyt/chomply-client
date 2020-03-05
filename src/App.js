@@ -16,7 +16,7 @@ function App() {
         <CssBaseline />
         <Box 
           align="center"
-          width="100vw"
+          width="100%"
           height="100vh"
         >
           <Route exact path="/" component={FrontPage} />
