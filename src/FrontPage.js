@@ -35,14 +35,14 @@ function FrontPage(props) {
       </Box>
       <Box>
         <Typography variant='h4'>Add ingredients you have...</Typography>
-        <img src={phone1} />
+        <img alt="phone showing how to type" src={phone1} />
         <Typography variant='h4'>Recieve recipies you can make.</Typography>
         <Typography variant='h4'>Add or remove ingredients.</Typography>
-        <img src={phone2} />
+        <img alt="phone showing recipe based on input" src={phone2} />
         <Typography variant='h4'>Hit next to see another recipe using your ingredients.</Typography>
-        <img src={phone3} />
+        <img alt="phone showing recipe after you click on next" src={phone3} />
         <Typography variant='h4'>Check out the recipe when ready.</Typography>
-        <img src={phone4} />
+        <img alt="phone showing recipe on the owners site."src={phone4} />
       </Box>
       <Box
         bgcolor={lightBlue[200]}
